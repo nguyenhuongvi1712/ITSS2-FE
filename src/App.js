@@ -6,7 +6,6 @@ import ThemeProvider from './theme';
 // components
 import ScrollToTop from './components/scroll-to-top';
 import { StyledChart } from './components/chart';
-import MainPage from './components/sidebar/MainPage';
 
 // ----------------------------------------------------------------------
 
@@ -16,9 +15,8 @@ export default function App() {
       <ThemeProvider>
         <ScrollToTop />
         <StyledChart />
-        {/* <Router /> */}
+        <Router />
       </ThemeProvider>
-        <MainPage />
     </div>
   );
 }

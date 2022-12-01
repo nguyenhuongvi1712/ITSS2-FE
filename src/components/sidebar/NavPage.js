@@ -9,7 +9,7 @@ const NavPage = () => {
     <>
       <section>
         <Routes>
-        <Route path="/" element={<Words />} />
+        <Route path="/ad" element={<Words />} />
         <Route path="/ad/words" element={<Words />} />
         <Route path="/ad/tags" element={<Tags />} />
         <Route path="/ad/categories" element={<Categories/>} />

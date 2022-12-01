@@ -10,6 +10,7 @@ import Page404 from './pages/Page404';
 import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 import HomePage from './pages/guest/HomePage';
+import MainPage from './components/sidebar/MainPage';
 import Words from './pages/admin/Words';
 import Tags from './pages/admin/Tags';
 import Categories from './pages/admin/Categories';
@@ -51,12 +52,12 @@ export default function Router() {
     },
     {
       path: "/ad",
-      element: <Words />,
+      element: <MainPage />,
       children: [
         { element: <Words to="/ad" />, index: true },
         { path:"words", element: <Words />},
         { path:"tags", element: <Tags />},
-        { path:"categories", element: <Categories />} 
+        { path:"categories", element: <Categories />},
       ]
     }
   ]);

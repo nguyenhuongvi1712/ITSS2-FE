@@ -1,45 +1,34 @@
-import React from "react";
-import {BsBook} from 'react-icons/bs'
-import { NavLink } from "react-router-dom";
-import { HeaderData } from "../data/HeaderData";
+import { AppBar, Toolbar, IconButton, Typography, Box, Button, Link } from '@mui/material';
+import Logo from '../logo/Logo';
+import HeaderData from '../data/HeaderData';
 
-const Navbar = () => {
-  const activeLink = 'hover:bg-red-500 mt-7 pl-7 w-full h-14 flex justify-start items-center text-white text-2xl space-x-1 font-bold bg-red-500'
-  const normalLink = 'hover:bg-red-500 pl-7 mt-7 w-full h-14 flex justify-start items-center text-white text-2xl space-x-1 font-bold'    
+export default function Header() {
   return (
-    <>
-      <section>
-        <div className='bg-sky-700 h-20 w-full flex items-center pl-10 space-x-4'>
-            <div>
-            <BsBook className='text-white text-4xl tex'/>
-            </div>
-
-            <div>
-            <p className='text-white text-3xl'>LaVie</p>
-            </div>
-
-            <div className="w-full items-center flex justify-end pr-8 pb-6 ">
-            {
-                HeaderData.map((item, index)=>{
-                    return(
-                        <div key={index}>
-                            <NavLink to={item.path}
-                            className={({ isActive }) =>
-                            isActive ? activeLink: normalLink}
-                             >
-                            <span>{item.title}</span>
-                            <span>{item.icon}</span>
-                            </NavLink>
-                            
-                        </div>
-                    )
-                })
-            }
-            </div>
-        </div>  
-      </section>
-    </>
-  );
-};
-
-export default Navbar;
+    <AppBar component="nav">
+      <Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="start"
+          sx={{ mr: 2, display: { sm: 'none' } }}
+        >
+          <Logo
+            sx={{
+              position: 'fixed',
+              top: { xs: 16, sm: 24, md: 40 },
+              left: { xs: 16, sm: 24, md: 40 },
+            }}
+          />
+        </IconButton>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 3, display: { xs: 'none', sm: 'block' } }}
+        >
+          LaVie
+        </Typography>
+        <HeaderData />
+      </Toolbar>
+    </AppBar>
+  )
+}
